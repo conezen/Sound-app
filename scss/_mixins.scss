@@ -1,0 +1,32 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex($align-items, $justify-content){
+    display: flex;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+@mixin breakpoint($point){
+    @if $point == large {
+        @media screen and (max-width: 1200px) { @content; }
+    }
+    @else if $point == medium {
+        @media screen and (max-width: 1024px) { @content; }
+    }
+    @else if $point == tablet-large {
+        @media screen and (max-width: 860px) { @content; }
+    }
+    @else if $point == tablet {
+        @media screen and (max-width: 680px) { @content; }
+    }
+    @else if $point == mobile-large {
+        @media screen and (max-width: 575px) { @content; }
+    }
+    @else if $point == mobile-small {
+        @media screen and (max-width: 425px) { @content; }
+    }
+}
